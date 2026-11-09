@@ -135,18 +135,6 @@ chmod +x mvnw
 # Ejecutar Spring Boot
 ./mvnw spring-boot:run
 ```
-ATENCION!!
-Si se presenta un error al ejecutar `npm install` en el frontend,
-`npm : No se puede cargar el archivo C:\Program Files\nodejs\npm.ps1 porque la ejecución de scripts está deshabilitada en este sistema`. 
- Ejecuta el siguiente comando
-```powershell
-# Opción 1: Desbloquearlo solo para tu usuario actual
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-
-# Opción 2: Solución temporal (Solo para la sesión actual)
-Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
-```
-
 > **Verificación del Backend:**  
 > Cuando el servidor termine de inicializar, observará en la terminal el mensaje:  
 > `Started InsecureCareApplication in X.XXX seconds (process running for X.XXX)`.  
@@ -263,13 +251,10 @@ La base de datos se carga automáticamente con cinco usuarios de prueba para eva
 
 Una vez que la aplicación esté levantada y operativa:
 
-1. **Abra el cuestionario de evaluación:**  
-   Consulte el archivo [`Evaluaciones/Quices/Quiz_9/Quiz_9.md`](../../Evaluaciones/Quices/Quiz_9/Quiz_9.md) (o su versión PDF [`Quiz_9.pdf`](../../Evaluaciones/Quices/Quiz_9/Quiz_9.pdf)).
+1. **Inicie el quiz en mediación virtual**  
 2. **Explore la aplicación web con mentalidad de auditor:**
    * Pruebe la barra de búsqueda clínica ingresando payloads de inyección SQL (ejemplo: `' OR '1'='1`).
    * Inicie sesión como `carlos_mora` e intente acceder al expediente de `maria_rojas` modificando la URL o manipulando peticiones REST.
    * Regístrese o cree un nuevo expediente insertando código HTML/JavaScript (ejemplo: `<img src=x onerror=alert(...)>`) y verifique si se ejecuta en el navegador.
-   * Inspeccione la base de datos en `/h2-console` y analice cómo se guardan las contraseñas de los usuarios.
-   * Provoque un error en la API y examine el nivel de detalle entregado en la respuesta JSON (*Stack Trace*).
-3. **Complete la Hoja de Hallazgos:**  
-   Llene la plantilla *Pentest Findings Sheet* incluida en el Quiz 9 con las 5 vulnerabilidades detectadas, sus evidencias y sus propuestas de remediación.
+   * Inspeccione la base de datos en `/h2-console` y analice cómo se almacenan las contraseñas de los usuarios.
+   * Provoque un error en la API y examine el nivel de detalle proporcionado en la respuesta JSON (*Stack Trace*).
