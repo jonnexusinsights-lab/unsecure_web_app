@@ -13,7 +13,7 @@
 
 > [!CAUTION]
 > **ENTORNO INTENCIONALMENTE VULNERABLE:**  
-> Esta aplicación web fue desarrollada **exclusivamente con fines académicos y pedagógicos** para el curso IF0009. Contiene deliberadamente debilidades de seguridad del estándar **OWASP Top 10** (inyecciones SQL, control de acceso roto/IDOR, fallos criptográficos, XSS almacenado y fuga de trazas). **Bajo ninguna circunstancia copie, traslade o reutilice estos patrones de código en proyectos reales o entornos de producción.**
+> Esta aplicación web fue desarrollada **exclusivamente con fines académicos y pedagógicos** para el curso IF0009. Contiene deliberadamente debilidades de seguridad del estándar **OWASP Top 10**. **Bajo ninguna circunstancia copie, traslade o reutilice estos patrones de código en proyectos reales o entornos de producción.**
 
 ---
 
@@ -59,10 +59,10 @@ Si está clonando el repositorio completo de la cátedra desde GitHub / GitLab, 
 
 ```bash
 # Clonar el repositorio del curso
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/jonnexusinsights-lab/unsecure_web_app.git
 
 # Navegar a la carpeta específica de la aplicación web vulnerable
-cd IF0009/web_apps/unsecure_web_app
+cd /web_apps/unsecure_web_app
 ```
 
 > [!NOTE]
@@ -135,7 +135,6 @@ chmod +x mvnw
 # Ejecutar Spring Boot
 ./mvnw spring-boot:run
 ```
-
 > **Verificación del Backend:**  
 > Cuando el servidor termine de inicializar, observará en la terminal el mensaje:  
 > `Started InsecureCareApplication in X.XXX seconds (process running for X.XXX)`.  
@@ -252,13 +251,10 @@ La base de datos se carga automáticamente con cinco usuarios de prueba para eva
 
 Una vez que la aplicación esté levantada y operativa:
 
-1. **Abra el cuestionario de evaluación:**  
-   Consulte el archivo [`Evaluaciones/Quices/Quiz_9/Quiz_9.md`](../../Evaluaciones/Quices/Quiz_9/Quiz_9.md) (o su versión PDF [`Quiz_9.pdf`](../../Evaluaciones/Quices/Quiz_9/Quiz_9.pdf)).
+1. **Inicie el quiz en mediación virtual**  
 2. **Explore la aplicación web con mentalidad de auditor:**
    * Pruebe la barra de búsqueda clínica ingresando payloads de inyección SQL (ejemplo: `' OR '1'='1`).
    * Inicie sesión como `carlos_mora` e intente acceder al expediente de `maria_rojas` modificando la URL o manipulando peticiones REST.
    * Regístrese o cree un nuevo expediente insertando código HTML/JavaScript (ejemplo: `<img src=x onerror=alert(...)>`) y verifique si se ejecuta en el navegador.
-   * Inspeccione la base de datos en `/h2-console` y analice cómo se guardan las contraseñas de los usuarios.
-   * Provoque un error en la API y examine el nivel de detalle entregado en la respuesta JSON (*Stack Trace*).
-3. **Complete la Hoja de Hallazgos:**  
-   Llene la plantilla *Pentest Findings Sheet* incluida en el Quiz 9 con las 5 vulnerabilidades detectadas, sus evidencias y sus propuestas de remediación.
+   * Inspeccione la base de datos en `/h2-console` y analice cómo se almacenan las contraseñas de los usuarios.
+   * Provoque un error en la API y examine el nivel de detalle proporcionado en la respuesta JSON (*Stack Trace*).
