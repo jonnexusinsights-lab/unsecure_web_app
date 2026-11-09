@@ -13,7 +13,7 @@
 
 > [!CAUTION]
 > **ENTORNO INTENCIONALMENTE VULNERABLE:**  
-> Esta aplicación web fue desarrollada **exclusivamente con fines académicos y pedagógicos** para el curso IF0009. Contiene deliberadamente debilidades de seguridad del estándar **OWASP Top 10** (inyecciones SQL, control de acceso roto/IDOR, fallos criptográficos, XSS almacenado y fuga de trazas). **Bajo ninguna circunstancia copie, traslade o reutilice estos patrones de código en proyectos reales o entornos de producción.**
+> Esta aplicación web fue desarrollada **exclusivamente con fines académicos y pedagógicos** para el curso IF0009. Contiene deliberadamente debilidades de seguridad del estándar **OWASP Top 10**. **Bajo ninguna circunstancia copie, traslade o reutilice estos patrones de código en proyectos reales o entornos de producción.**
 
 ---
 
