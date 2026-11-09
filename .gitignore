@@ -1,0 +1,78 @@
+# ==========================================
+# Ecosistema Angular / Node.js
+# ==========================================
+# Carpetas de dependencias y cachés
+node_modules/
+.angular/
+.sass-cache/
+
+# Salidas de compilación y empaquetado
+dist/
+tmp/
+out-tsc/
+bazel-out/
+
+# Archivos de pruebas y reportes
+/coverage/
+/testem.log
+yarn-error.log
+npm-debug.log*
+
+# ==========================================
+# Ecosistema Java / Spring Boot
+# ==========================================
+# Carpetas de compilación principales
+target/
+build/
+out/
+bin/
+
+# Herramientas de construcción locales (Gradle/Maven caches)
+.gradle/
+.m2/
+
+# Archivos de bitácora (Logs)
+*.log
+logs/
+
+# ==========================================
+# Entornos, Secretos y Despliegue (Deploy)
+# ==========================================
+# No subir credenciales ni perfiles locales de desarrollo
+.env
+.env.*
+application-dev.properties
+application-local.properties
+application-local.yml
+
+# Archivos temporales o paquetes listos para producción
+*.jar
+*.war
+*.zip
+*.tar.gz
+
+# ==========================================
+# Configuraciones de IDEs y editores (Opcional)
+# ==========================================
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# Eclipse / STS
+.classpath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+
+# Sistema Operativo
+.DS_Store
+Thumbs.db
