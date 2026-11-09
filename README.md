@@ -59,10 +59,10 @@ Si está clonando el repositorio completo de la cátedra desde GitHub / GitLab, 
 
 ```bash
 # Clonar el repositorio del curso
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/jonnexusinsights-lab/unsecure_web_app.git
 
 # Navegar a la carpeta específica de la aplicación web vulnerable
-cd IF0009/web_apps/unsecure_web_app
+cd /web_apps/unsecure_web_app
 ```
 
 > [!NOTE]
