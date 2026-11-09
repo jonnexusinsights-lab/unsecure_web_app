@@ -1,0 +1,15 @@
+cr\ac\ucr\if0009\insecurecare\service\ExpedienteService.class
+cr\ac\ucr\if0009\insecurecare\repository\ExpedienteRepository.class
+cr\ac\ucr\if0009\insecurecare\InsecureCareApplication.class
+cr\ac\ucr\if0009\insecurecare\util\JwtUtil.class
+cr\ac\ucr\if0009\insecurecare\dto\LoginResponse.class
+cr\ac\ucr\if0009\insecurecare\service\AuthService.class
+cr\ac\ucr\if0009\insecurecare\controller\ExpedienteController.class
+cr\ac\ucr\if0009\insecurecare\model\Usuario.class
+cr\ac\ucr\if0009\insecurecare\model\ExpedienteMedico.class
+cr\ac\ucr\if0009\insecurecare\model\Rol.class
+cr\ac\ucr\if0009\insecurecare\controller\AuthController.class
+cr\ac\ucr\if0009\insecurecare\repository\UsuarioRepository.class
+cr\ac\ucr\if0009\insecurecare\dto\ExpedienteDto.class
+cr\ac\ucr\if0009\insecurecare\dto\LoginRequest.class
+cr\ac\ucr\if0009\insecurecare\config\CorsConfig.class

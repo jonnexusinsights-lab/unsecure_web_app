@@ -1,0 +1,15 @@
+C:\Users\jonat\OneDrive\Documentos\UCR-2026\IF0009\web_apps\unsecure_web_app\backend\src\main\java\cr\ac\ucr\if0009\insecurecare\config\CorsConfig.java
+C:\Users\jonat\OneDrive\Documentos\UCR-2026\IF0009\web_apps\unsecure_web_app\backend\src\main\java\cr\ac\ucr\if0009\insecurecare\controller\AuthController.java
+C:\Users\jonat\OneDrive\Documentos\UCR-2026\IF0009\web_apps\unsecure_web_app\backend\src\main\java\cr\ac\ucr\if0009\insecurecare\controller\ExpedienteController.java
+C:\Users\jonat\OneDrive\Documentos\UCR-2026\IF0009\web_apps\unsecure_web_app\backend\src\main\java\cr\ac\ucr\if0009\insecurecare\dto\ExpedienteDto.java
+C:\Users\jonat\OneDrive\Documentos\UCR-2026\IF0009\web_apps\unsecure_web_app\backend\src\main\java\cr\ac\ucr\if0009\insecurecare\dto\LoginRequest.java
+C:\Users\jonat\OneDrive\Documentos\UCR-2026\IF0009\web_apps\unsecure_web_app\backend\src\main\java\cr\ac\ucr\if0009\insecurecare\dto\LoginResponse.java
+C:\Users\jonat\OneDrive\Documentos\UCR-2026\IF0009\web_apps\unsecure_web_app\backend\src\main\java\cr\ac\ucr\if0009\insecurecare\InsecureCareApplication.java
+C:\Users\jonat\OneDrive\Documentos\UCR-2026\IF0009\web_apps\unsecure_web_app\backend\src\main\java\cr\ac\ucr\if0009\insecurecare\model\ExpedienteMedico.java
+C:\Users\jonat\OneDrive\Documentos\UCR-2026\IF0009\web_apps\unsecure_web_app\backend\src\main\java\cr\ac\ucr\if0009\insecurecare\model\Rol.java
+C:\Users\jonat\OneDrive\Documentos\UCR-2026\IF0009\web_apps\unsecure_web_app\backend\src\main\java\cr\ac\ucr\if0009\insecurecare\model\Usuario.java
+C:\Users\jonat\OneDrive\Documentos\UCR-2026\IF0009\web_apps\unsecure_web_app\backend\src\main\java\cr\ac\ucr\if0009\insecurecare\repository\ExpedienteRepository.java
+C:\Users\jonat\OneDrive\Documentos\UCR-2026\IF0009\web_apps\unsecure_web_app\backend\src\main\java\cr\ac\ucr\if0009\insecurecare\repository\UsuarioRepository.java
+C:\Users\jonat\OneDrive\Documentos\UCR-2026\IF0009\web_apps\unsecure_web_app\backend\src\main\java\cr\ac\ucr\if0009\insecurecare\service\AuthService.java
+C:\Users\jonat\OneDrive\Documentos\UCR-2026\IF0009\web_apps\unsecure_web_app\backend\src\main\java\cr\ac\ucr\if0009\insecurecare\service\ExpedienteService.java
+C:\Users\jonat\OneDrive\Documentos\UCR-2026\IF0009\web_apps\unsecure_web_app\backend\src\main\java\cr\ac\ucr\if0009\insecurecare\util\JwtUtil.java

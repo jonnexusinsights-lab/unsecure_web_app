@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <h2>Expedientes Clínicos Confidenciales</h2>
+        <p style="font-size: 14px; color: var(--text-muted);">
+          Listado de registros médicos bajo custodia de InsecureCare.
+        </p>
+      </div>
+      <div>
+        <a routerLink="/nuevo-expediente" class="btn btn-primary">
+          + Nuevo Expediente (Inyección XSS)
+        </a>
+      </div>
+    </div>
+
+    <!-- Barra de Búsqueda Vulnerable a SQL Injection -->
+    <div style="margin-bottom: 24px; background: #f8fafc; padding: 16px; border-radius: var(--radius); border: 1px solid var(--border);">
+      <label for="search">Búsqueda Rápida de Diagnóstico o Tratamiento</label>
+      <div style="display: flex; gap: 10px; margin-top: 6px;">
+        <input type="text" id="search" [(ngModel)]="terminoBusqueda" (keyup.enter)="ejecutarBusqueda()"
+               placeholder="Ingrese término clínico o pruebe inyección SQL..." style="flex: 1;">
+        <button type="button" class="btn btn-primary" (click)="ejecutarBusqueda()">Buscar</button>
+        <button type="button" class="btn btn-secondary" (click)="cargarExpedientes()">Limpiar</button>
+      </div>
+
+      <div style="margin-top: 10px; display: flex; align-items: center; gap: 10px;">
+        <span style="font-size: 12px; color: var(--text-muted); font-weight: 600;">ATAJO DE AUDITORÍA:</span>
+        <button type="button" class="btn btn-secondary btn-sm" (click)="probarPayloadSql()">
+          Inyectar Payload: <code>' OR '1'='1</code>
+        </button>
+      </div>
+    </div>
+
+    <!-- Alerta de Información Expuesta -->
+    <div *ngIf="errorInfo" class="alert alert-danger" style="font-family: monospace; font-size: 13px; white-space: pre-wrap;">
+      {{ errorInfo }}
+    </div>
+
+    <!-- Tabla de Resultados -->
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>No. Expediente</th>
+            <th>Paciente</th>
+            <th>Diagnóstico</th>
+            <th>Tratamiento</th>
+            <th>Confidencial</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let exp of expedientes">
+            <td><strong>#{{ exp.id }}</strong></td>
+            <td><code>{{ exp.numeroExpediente }}</code></td>
+            <td>{{ exp.nombrePaciente }}</td>
+            <td>{{ exp.diagnostico }}</td>
+            <td>{{ exp.tratamiento }}</td>
+            <td>
+              <span class="badge" [ngClass]="exp.confidencial ? 'badge-danger' : 'badge-success'">
+                {{ exp.confidencial ? 'Confidencial' : 'Público' }}
+              </span>
+            </td>
+            <td>
+              <a [routerLink]="['/expediente', exp.id]" class="btn btn-secondary btn-sm">
+                Ver Detalle (IDOR)
+              </a>
+            </td>
+          </tr>
+          <tr *ngIf="expedientes.length === 0 && !loading">
+            <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 24px;">
+              No se encontraron expedientes con los criterios indicados.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,81 @@
+<div class="container" style="max-width: 900px;">
+  <!-- Barra de Navegacion Rápida IDOR -->
+  <div class="card" style="background: #f8fafc; border-left: 4px solid var(--warning);">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <strong style="color: #92400e;">VECTOR DE AUDITORÍA IDOR (BOLA):</strong>
+        <span style="font-size: 13px; color: var(--text-muted); margin-left: 8px;">
+          Altere el identificador numérico para acceder a registros médicos de otros pacientes:
+        </span>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <button class="btn btn-secondary btn-sm" (click)="navegarAId(1)">Expediente #1</button>
+        <button class="btn btn-secondary btn-sm" (click)="navegarAId(2)">Expediente #2</button>
+        <button class="btn btn-secondary btn-sm" (click)="navegarAId(3)">Expediente #3</button>
+        <button class="btn btn-secondary btn-sm" (click)="navegarAId(4)">Expediente #4</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="errorMsg" class="alert alert-danger">
+    {{ errorMsg }}
+  </div>
+
+  <div class="card" *ngIf="expediente">
+    <div class="card-header">
+      <div>
+        <h2>Expediente Clínico: {{ expediente.numeroExpediente }}</h2>
+        <p style="font-size: 14px; color: var(--text-muted);">
+          Paciente: <strong>{{ expediente.nombrePaciente }}</strong> (Usuario ID: {{ expediente.usuarioId }})
+        </p>
+      </div>
+      <div>
+        <span class="badge" [ngClass]="expediente.confidencial ? 'badge-danger' : 'badge-success'" style="font-size: 14px;">
+          {{ expediente.confidencial ? 'CLASIFICACIÓN CONFIDENCIAL' : 'REGISTRO PÚBLICO' }}
+        </span>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;">
+      <div>
+        <label>Diagnóstico Primario</label>
+        <p style="font-size: 16px; font-weight: 600; color: #1e293b;">
+          {{ expediente.diagnostico }}
+        </p>
+      </div>
+      <div>
+        <label>Fecha de Registro</label>
+        <p style="font-size: 15px; color: var(--text-muted);">
+          {{ expediente.fechaRegistro }}
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Tratamiento Farmacológico e Indicaciones Médicas</label>
+      <div style="background: #f1f5f9; padding: 14px; border-radius: var(--radius); border: 1px solid var(--border);">
+        {{ expediente.tratamiento }}
+      </div>
+    </div>
+
+    <!-- SINK VULNERABLE A XSS -->
+    <div class="form-group" style="margin-top: 24px;">
+      <label style="color: #b91c1c;">
+        Observaciones Médicas y Evolución Clínica (Renderizado HTML en Directo - Sink XSS):
+      </label>
+      <div style="background: #ffffff; padding: 18px; border-radius: var(--radius); border: 2px dashed #fca5a5; min-height: 80px;"
+           [innerHTML]="observacionesSeguras">
+      </div>
+    </div>
+
+    <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+      <a routerLink="/expedientes" class="btn btn-secondary">
+        &larr; Volver al Listado General
+      </a>
+      <span style="font-size: 13px; color: var(--text-muted); align-self: center;">
+        Usuario activo en sesión: <strong>{{ authService.currentUser()?.username || 'Anónimo' }}</strong>
+      </span>
+    </div>
+  </div>
+</div>
+

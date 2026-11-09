@@ -1,0 +1,54 @@
+<!-- Barra Superior de Navegación -->
+<header style="background: #ffffff; border-bottom: 1px solid var(--border); box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);">
+  <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding-top: 14px; padding-bottom: 14px;">
+    <div style="display: flex; align-items: center; gap: 20px;">
+      <a routerLink="/expedientes" style="text-decoration: none; display: flex; align-items: center; gap: 8px;">
+        <span style="font-size: 22px;">🏥</span>
+        <span style="font-weight: 800; font-size: 18px; color: var(--primary); letter-spacing: -0.5px;">InsecureCare</span>
+        <span class="badge badge-warning" style="font-size: 11px;">Entorno Vulnerable</span>
+      </a>
+
+      <nav style="display: flex; gap: 12px; margin-left: 20px;" *ngIf="authService.isAuthenticated()">
+        <a routerLink="/expedientes" routerLinkActive="btn-secondary" class="btn btn-sm" style="text-decoration: none;">
+          📋 Expedientes
+        </a>
+        <a routerLink="/nuevo-expediente" routerLinkActive="btn-secondary" class="btn btn-sm" style="text-decoration: none;">
+          ➕ Registrar Expediente
+        </a>
+      </nav>
+    </div>
+
+    <div>
+      <div *ngIf="authService.currentUser() as user; else noUser" style="display: flex; align-items: center; gap: 14px;">
+        <span style="font-size: 13px; color: var(--text-muted);">
+          Sesión: <strong>{{ user.nombreCompleto }}</strong>
+          <span class="badge" [ngClass]="user.rol === 'ADMIN' ? 'badge-danger' : (user.rol === 'MEDICO' ? 'badge-info' : 'badge-success')" style="margin-left: 6px;">
+            {{ user.rol }}
+          </span>
+        </span>
+        <button (click)="onLogout()" class="btn btn-secondary btn-sm">
+          Cerrar Sesión
+        </button>
+      </div>
+      <ng-template #noUser>
+        <a routerLink="/login" class="btn btn-primary btn-sm">
+          Iniciar Sesión
+        </a>
+      </ng-template>
+    </div>
+  </div>
+</header>
+
+<!-- Contenido Principal Enrutado -->
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<!-- Pie de Página Institucional -->
+<footer style="margin-top: 60px; padding: 24px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 13px;">
+  <div class="container">
+    <p><strong>Universidad de Costa Rica - Sede del Atlántico</strong> | IF0009 Desarrollo de Software IV</p>
+    <p style="margin-top: 4px;">Laboratorio Pedagógico de Ciberseguridad Defensiva y Auditoría OWASP Top 10</p>
+  </div>
+</footer>
+

@@ -1,0 +1,76 @@
+<div class="container" style="max-width: 800px;">
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <h2>Registro de Nuevo Expediente Médico</h2>
+        <p style="font-size: 14px; color: var(--text-muted);">
+          Formulario para ingresar diagnósticos e indicaciones de pacientes.
+        </p>
+      </div>
+      <div>
+        <a routerLink="/expedientes" class="btn btn-secondary btn-sm">Cancelar</a>
+      </div>
+    </div>
+
+    <div *ngIf="errorMsg" class="alert alert-danger">
+      {{ errorMsg }}
+    </div>
+
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="usuarioId">ID de Usuario Paciente Asignado</label>
+        <select id="usuarioId" [(ngModel)]="expediente.usuarioId" name="usuarioId">
+          <option [ngValue]="3">Carlos Mora Morales (ID: 3)</option>
+          <option [ngValue]="4">María Rojas Soto (ID: 4)</option>
+          <option [ngValue]="5">Ana Solís Brenes (ID: 5)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="diagnostico">Diagnóstico Primario</label>
+        <input type="text" id="diagnostico" [(ngModel)]="expediente.diagnostico" name="diagnostico"
+               placeholder="Ej: Gastritis Crónica Erosiva" required>
+      </div>
+
+      <div class="form-group">
+        <label for="tratamiento">Tratamiento e Indicaciones</label>
+        <textarea id="tratamiento" [(ngModel)]="expediente.tratamiento" name="tratamiento" rows="3"
+                  placeholder="Ej: Omeprazol 20mg en ayunas por 6 semanas." required></textarea>
+      </div>
+
+      <!-- Campo Inseguro para Inyección XSS -->
+      <div class="form-group">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <label for="observacionesHtml" style="color: #b91c1c; margin-bottom: 0;">
+            Observaciones Clínicas (Permite Formato HTML - Vector XSS Almacenado):
+          </label>
+          <div style="display: flex; gap: 6px;">
+            <button type="button" class="btn btn-secondary btn-sm" (click)="inyectarPayloadXss('img')">
+              Cargar Payload &lt;img onerror&gt;
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm" (click)="inyectarPayloadXss('estilo')">
+              Cargar Payload HTML / CSS
+            </button>
+          </div>
+        </div>
+        <textarea id="observacionesHtml" [(ngModel)]="expediente.observacionesHtml" name="observacionesHtml" rows="4"
+                  placeholder="<p>Ingrese observaciones médicas con soporte de etiquetas HTML...</p>"></textarea>
+      </div>
+
+      <div class="form-group" style="display: flex; align-items: center; gap: 10px;">
+        <input type="checkbox" id="confidencial" [(ngModel)]="expediente.confidencial" name="confidencial">
+        <label for="confidencial" style="margin-bottom: 0; cursor: pointer;">
+          Marcar este expediente como CONFIDENCIAL
+        </label>
+      </div>
+
+      <div style="margin-top: 24px; display: flex; justify-content: flex-end; gap: 12px;">
+        <a routerLink="/expedientes" class="btn btn-secondary">Cancelar</a>
+        <button type="submit" class="btn btn-primary" [disabled]="loading">
+          {{ loading ? 'Registrando...' : 'Guardar Expediente' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
