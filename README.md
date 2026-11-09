@@ -135,6 +135,17 @@ chmod +x mvnw
 # Ejecutar Spring Boot
 ./mvnw spring-boot:run
 ```
+ATENCION!!
+Si se presenta un error al ejecutar `npm install` en el frontend,
+`npm : No se puede cargar el archivo C:\Program Files\nodejs\npm.ps1 porque la ejecución de scripts está deshabilitada en este sistema`. 
+ Ejecuta el siguiente comando
+```powershell
+# Opción 1: Desbloquearlo solo para tu usuario actual
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+# Opción 2: Solución temporal (Solo para la sesión actual)
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+```
 
 > **Verificación del Backend:**  
 > Cuando el servidor termine de inicializar, observará en la terminal el mensaje:  
